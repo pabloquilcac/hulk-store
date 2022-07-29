@@ -3,6 +3,10 @@ import { ItemCart } from '../../interfaces/cart.interface';
 import { Product } from '../../interfaces/product.interface';
 import { CartService } from '../../services/cart.service';
 import { AuthService } from '../../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { Kardex } from '../../interfaces/kardex.interface';
+import { KardexService } from '../../services/kardex.service';
 
 
 @Component({
@@ -18,7 +22,7 @@ export class CartComponent implements OnInit {
     return this.cartService.userCart;
   }
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,private _snackBar: MatSnackBar,private router:Router,private kardexService:KardexService) {
 
   }
 
@@ -37,12 +41,12 @@ export class CartComponent implements OnInit {
     if (localStorage.getItem('hulk_token')) {
       this.token=localStorage.getItem('hulk_token');
     }
-   
-    console.log(localStorage.getItem('hulk_token'))
     if (this.token!=null) {
       console.log('comprar')
     } else  {
-      console.log('no comprar, iniciar sesion')
+      this.openSnackBar('Por favor inicie sesión para continuar la compra','Aceptar');
+      this.router.navigate(['/login']);
+
     }
   }
 
@@ -53,7 +57,31 @@ export class CartComponent implements OnInit {
       return true;
     }
   }
- 
 
+
+  kardex: Kardex | undefined
+
+  sale(product: Product) {
+
+    this.kardex={
+        product: product,
+        fecha: new Date(),
+        type: 'I',
+        stock: 10,
+        price: 19.20
+      }
+
+      this.kardexService.saveKardex(this.kardex).subscribe( data => {
+        this.openSnackBar('Kardex registrado con exito','Aceptar')
+        this.router.navigate(['admin-productos']);
+      });
+  }
+ 
+  openSnackBar(message:string,value:string) {
+    this._snackBar.open(message, value, {
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
+  }
 
 }

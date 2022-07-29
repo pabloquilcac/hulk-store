@@ -4,5 +4,5 @@ export interface Kardex {
     fecha: Date;
     type: string;
     stock: number;
-    precio: number;
+    price: number;
 }

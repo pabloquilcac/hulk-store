@@ -22,12 +22,9 @@ export class LoginComponent implements OnInit {
   }
   
   login(){
-    console.log(this.email);
-    console.log(Md5.init(this.password));
     this.varsharedService.setValue({ name: 'anonimo',rol: 'anonimo'});
     const user = {email: this.email, password: Md5.init(this.password) };
     this.authService.login(user).subscribe( data => {
-      console.log(data);
       this.varsharedService.setValue({name: data.name,rol: data.rol});
       localStorage.setItem('hulk_token', Md5.init(this.password));
       this.router.navigate(['/cart']);

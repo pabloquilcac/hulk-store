@@ -36,17 +36,13 @@ export class AdminProductosComponent implements OnInit {
         fecha: new Date(),
         type: 'I',
         stock: 10,
-        precio: 19.20
+        price: 19.20
       }
 
       this.kardexService.saveKardex(this.kardex).subscribe( data => {
-        console.log(data);
         this.openSnackBar('Kardex registrado con exito','Aceptar')
         this.router.navigate(['admin-productos']);
       });
-
-    console.log('agregar')
-    console.log(this.kardex);
   }
 
   openSnackBar(message:string,value:string) {
