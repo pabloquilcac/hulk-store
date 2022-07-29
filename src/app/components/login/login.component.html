@@ -1,0 +1,42 @@
+<div class="login">
+    <form class="custom-form" method="post">
+        <br>
+        <br>
+      <h1>Ingresar</h1>
+      <p>
+        <mat-form-field appearance="standard" >
+            <mat-label>Correo electrónico</mat-label>
+            <input type="text" matInput placeholder="Correo electrónico" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required="required" [(ngModel)]="email" name="email">
+            <em class="material-icons" matSuffix>alternate_email</em>
+            <mat-hint></mat-hint>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input  type="password" required="required"matInput placeholder="Password" [(ngModel)]="password" name="password" [type]="ocultar ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="ocultar = !ocultar" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="ocultar">
+                <em class="material-icons" matSuffix>{{ocultar ? 'visibility_off' : 'visibility'}}</em>
+            </button>
+        </mat-form-field>
+    </p>
+
+      <div class="botones">
+        <button mat-raised-button (click)="login()">
+            <em class="material-icons">login</em>
+            <label>Ingresar</label>
+        </button>
+        &nbsp;&nbsp;
+        <button mat-raised-button routerLink="/register" >
+            <em class="material-icons">how_to_reg</em>
+            <label>Registrarse</label>
+        </button>
+
+    </div>  
+    <br>
+    <br>
+    <br>
+    <br>
+    </form>
+  </div>

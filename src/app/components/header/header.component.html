@@ -1,0 +1,18 @@
+<div class="topnav">
+    <a routerLink="/content">Inicio</a>
+    <a routerLink="/admin-productos">Admin</a>
+    <div class="topnav-right">
+        
+      <button mat-mini-fab matBadge="{{ total }}" matBadgeColor="warn" routerLink="/cart" aria-label="Mi compra">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+      &nbsp;&nbsp;
+      {{ usuario }}
+      &nbsp;&nbsp;
+      <button mat-mini-fab aria-label="Salir" (click)="logout()">
+        <mat-icon>add_to_home_screen</mat-icon>
+      </button>
+      &nbsp;&nbsp;
+    </div>
+  </div>
+

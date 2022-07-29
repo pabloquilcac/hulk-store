@@ -1,0 +1,14 @@
+.login{
+    width: 20%; 
+    margin: auto;
+}
+
+.mat-form-field{
+    width:400px !important;
+  }
+
+.botones{
+    text-align: center;
+    padding-left: 20px;
+}
+

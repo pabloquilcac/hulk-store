@@ -1,0 +1,39 @@
+
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('../../../assets/img/etiqueta.png');
+    background-size: cover;
+  }
+
+  .column {
+    float: left;
+    width: 25%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .container {
+    padding: 20px 16px;
+  }
+
+  .product-image {
+    border-radius: 8px;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .description {
+    height: 20px;
+  }
+
+  

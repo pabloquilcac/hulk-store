@@ -1,0 +1,52 @@
+<div class="register">
+    <br>
+    <br>
+    <h2>Por favor llene la información</h2>
+    <div>
+        <mat-form-field appearance="standard">
+            <mat-label>Correo electrónico</mat-label>
+            <input type="email" matInput placeholder="Correo electrónico" [(ngModel)]="user.email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required="required" name="email">
+            <em class="material-icons" matSuffix>contact_mail</em>
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="standard" >
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput placeholder="Nombre" [(ngModel)]="user.name" required="required" name="email">
+            <em class="material-icons" matSuffix>contacts</em>
+            <mat-hint></mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>Telefono</mat-label>
+            <input type="number" matInput placeholder="telefono" pattern="[- +()0-9]+" [(ngModel)]="user.phone" required="required" name="email">
+            <em class="material-icons" matSuffix>add_ic_call</em>
+            <mat-hint></mat-hint>
+        </mat-form-field>
+
+
+
+        <mat-form-field appearance="fill">
+            <mat-label>Dirección</mat-label>
+            <textarea matInput [(ngModel)]="user.address" placeholder="Dirección" required="required" name="email"></textarea>
+            <em class="material-icons" matSuffix>location_on</em>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput placeholder="Password" [(ngModel)]="user.password" [type]="ocultar ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="ocultar = !ocultar" [attr.aria-label]="'Ocultar contraseña'" [attr.aria-pressed]="ocultar">
+                <em class="material-icons" matSuffix>{{ocultar ? 'visibility_off' : 'visibility'}}</em>
+            </button>
+        </mat-form-field>
+        <br>
+        <div class="botones">
+            <button mat-raised-button (click)="register()">
+                <em class="material-icons">how_to_reg</em>
+                <label>Registrarme</label>
+            </button>
+        </div>
+        <br>
+        <br>
+        <br>
+
+    </div>

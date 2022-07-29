@@ -1,0 +1,24 @@
+<div class="content">
+    <div class="column" *ngFor="let product of products; let i=index">
+    <div class="container">
+        <mat-card class="example-card">        
+            <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ product.category.description}}</mat-card-title>
+            <mat-card-subtitle>{{ product.heroe }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image class="product-image" src="../assets/img/{{ product.image }}" alt="Photo of a Shiba Inu" >
+            <mat-card-content>
+            <p class="description">
+            {{ product.description }}
+            </p>
+            </mat-card-content>
+            <mat-card-actions>
+            <span>{{ product.stockStatus }}</span>
+            <button (click)="addToCart(product)" mat-button>Agregar al carrito</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    </div>
+</div>
+
