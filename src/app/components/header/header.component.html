@@ -9,8 +9,8 @@
       &nbsp;&nbsp;
       {{ usuario }}
       &nbsp;&nbsp;
-      <button mat-mini-fab aria-label="Salir" (click)="logout()">
-        <mat-icon>add_to_home_screen</mat-icon>
+      <button mat-mini-fab aria-label="Salir" (click)="logout()" *ngIf="usuario!='anonimo'"  >
+        <mat-icon>exit_to_app</mat-icon>
       </button>
       &nbsp;&nbsp;
     </div>
